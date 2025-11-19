@@ -1,0 +1,9 @@
+POST http://localhost:4002/customers
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Johnny Doe",
+  "email": "johnny@gmail.com",
+    "address": "456 Elm Street"
+}

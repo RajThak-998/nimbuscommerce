@@ -1,0 +1,9 @@
+PUT http://localhost:4002/customers/9ca8bdf7-5739-4572-be64-79dc88321046
+Content-Type: application/json
+Accept: application/json
+
+    {
+      "name": "Rajdev Singh",
+      "email": "rajdev@gmail.com",
+      "address": "789 Oak Avenue"
+    }
