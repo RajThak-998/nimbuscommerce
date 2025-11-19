@@ -3,22 +3,18 @@ package com.nimbuscommerce.authservice.service;
 import com.nimbuscommerce.authservice.dto.LoginRequestDTO;
 import com.nimbuscommerce.authservice.util.JwtUtil;
 import io.jsonwebtoken.JwtException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AuthService {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
-
-    private AuthService(UserService userService, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
-        this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtUtil = jwtUtil;
-    }
 
     public Optional<String> authenticate(LoginRequestDTO loginRequestDTO) {
         return userService.findByEmail(loginRequestDTO.getEmail())
