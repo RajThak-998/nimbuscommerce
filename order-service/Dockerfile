@@ -16,9 +16,8 @@ RUN mvn -B -q clean package -DskipTests
 FROM eclipse-temurin:21-jdk AS runner
 
 WORKDIR /app
-COPY --from=builder /app/target/customer-service-0.0.1-SNAPSHOT.jar ./app.jar
+COPY --from=builder /app/target/order-service-0.0.1-SNAPSHOT.jar ./app.jar
 
-EXPOSE 4002
-EXPOSE 9002
+EXPOSE 4003
 
 ENTRYPOINT ["java","-jar","app.jar"]

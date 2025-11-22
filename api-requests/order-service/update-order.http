@@ -1,0 +1,9 @@
+PUT http://localhost:4003/orders/77bc063b-008c-4c90-9ff9-a8152681b6cb
+Content-Type: application/json
+Accept: application/json
+
+{
+  "product": "newSoap",
+    "quantity": "20",
+    "price": "200"
+}

@@ -1,0 +1,10 @@
+POST http://localhost:4003/orders
+Content-Type: Application/json
+
+{
+  "customerId": "9ca8bdf7-5739-4572-be64-79dc88321046",
+  "product": "Protein Powder",
+    "quantity": "10",
+    "price": "10000"
+
+}

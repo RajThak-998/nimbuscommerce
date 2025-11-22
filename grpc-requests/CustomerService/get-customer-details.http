@@ -1,0 +1,5 @@
+GRPC localhost:9002/CustomerService/GetCustomerDetails
+
+{
+  "customerId": "9ca8bdf7-5739-4572-be64-79dc88321046"
+}
