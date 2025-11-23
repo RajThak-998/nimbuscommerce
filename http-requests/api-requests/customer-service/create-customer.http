@@ -3,7 +3,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Johnny Doe",
-  "email": "johnny@gmail.com",
-    "address": "456 Elm Street"
+  "name": "Johnny5 Doe",
+  "email": "johnny5@gmail.com",
+    "address": "4564 Elm Street"
 }

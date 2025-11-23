@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package order.events;
+option java_multiple_files = true;
+
+message OrderEvent {
+  string orderId = 1;
+  string customerAddress = 2;
+  string customerContact = 3;
+  string status = 4; // e.g., "PLACED", "SHIPPED", "DELIVERED"
+}

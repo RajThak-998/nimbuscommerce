@@ -1,0 +1,10 @@
+POST http://localhost:4003/orders
+Content-Type: Application/json
+
+{
+  "customerId": "2f46a71e-95d2-47e6-884e-534145223799",
+  "product": "steroids",
+    "quantity": "10",
+    "price": "100000"
+
+}

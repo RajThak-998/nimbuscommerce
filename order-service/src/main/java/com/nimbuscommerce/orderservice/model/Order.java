@@ -26,7 +26,6 @@ public class Order {
 
     @NotBlank
     @Email
-    @Column(unique = true)
     private String email;
 
     @NotBlank

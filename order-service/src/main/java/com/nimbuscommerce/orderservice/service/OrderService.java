@@ -2,10 +2,12 @@ package com.nimbuscommerce.orderservice.service;
 
 import com.nimbuscommerce.orderservice.dto.OrderRequestDTO;
 import com.nimbuscommerce.orderservice.dto.OrderResponseDTO;
+import com.nimbuscommerce.orderservice.kafka.KafkaProducer;
 import com.nimbuscommerce.orderservice.mapper.OrderMapper;
 import com.nimbuscommerce.orderservice.model.Order;
 import com.nimbuscommerce.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.UUID;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
+    private final KafkaProducer kafkaProducer;
 
     public List<OrderResponseDTO> findAll() {
         List<Order> orders = orderRepository.findAll();
@@ -28,6 +31,8 @@ public class OrderService {
         Order newOrder = orderRepository.save(
                 orderMapper.toOrder(orderRequestDTO)
         );
+
+        kafkaProducer.sendOrderEvent(newOrder);
 
         return orderMapper.toOrderResponseDTO(newOrder);
 
