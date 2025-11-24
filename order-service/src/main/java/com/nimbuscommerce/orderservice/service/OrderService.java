@@ -49,11 +49,18 @@ public class OrderService {
 
         Order updatedOrder = orderRepository.save(order);
 
+        kafkaProducer.sendOrderEvent(order);
+
         return orderMapper.toOrderResponseDTO(updatedOrder);
 
     }
 
     public void deleteOrder(UUID id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found with id: " + id));
+        order.setStatus("DELETED");
+//        orderRepository.save(order);
+        kafkaProducer.sendOrderEvent(order);
         orderRepository.deleteById(id);
     }
 

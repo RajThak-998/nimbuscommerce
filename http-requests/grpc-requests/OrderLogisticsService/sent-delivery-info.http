@@ -1,0 +1,9 @@
+GRPC localhost:9003/order.OrderLogisticsService/UpdateLogisticsInfo
+
+{
+  "deliveryId": "d123456789",
+  "customerAddress" : "someaddress 123, City, Country",
+  "customerContact" : "+1234567890",
+  "status" : "In Transit",
+  "estimatedDelivery" : "2024-07-01T15:30:00Z"
+}

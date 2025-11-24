@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package order;
+
+service OrderLogisticsService {
+  rpc UpdateLogisticsInfo (LogisticsUpdateRequest) returns (LogisticsUpdateResponse);
+}
+
+message LogisticsUpdateRequest {
+  string deliveryId = 1;
+  string customerAddress = 2;
+  string customerContact = 3;
+  string status = 4;
+  string estimatedDelivery = 5;
+}
+
+message LogisticsUpdateResponse {
+  bool success = 1;
+}

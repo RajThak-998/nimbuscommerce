@@ -1,9 +1,9 @@
-PUT http://localhost:4003/orders/77bc063b-008c-4c90-9ff9-a8152681b6cb
+PUT http://localhost:4003/orders/38e54560-36a1-4470-976c-5cdf3b32571d
 Content-Type: application/json
 Accept: application/json
 
 {
-  "product": "newSoap",
+  "product": "newShampoo",
     "quantity": "20",
     "price": "200"
 }

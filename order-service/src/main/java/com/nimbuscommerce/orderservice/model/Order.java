@@ -25,7 +25,7 @@ public class Order {
     private String address;
 
     @NotBlank
-    @Email
+
     private String email;
 
     @NotBlank
