@@ -2,9 +2,8 @@ POST http://localhost:4003/orders
 Content-Type: Application/json
 
 {
-  "customerId": "2f46a71e-95d2-47e6-884e-534145223799",
-  "product": "yippi Noodles",
+  "customerId": "1b95646d-5d2d-44ee-876c-9628547950ac",
+  "product": "Laptop-Model-Y",
     "quantity": "1",
-    "price": "66969"
-
+    "price": "2000000"
 }

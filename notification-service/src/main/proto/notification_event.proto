@@ -1,0 +1,11 @@
+syntax = "proto3";
+package notification.event;
+option java_multiple_files = true;
+
+message NotificationEvent {
+  string deliveryId = 1;
+  string customerAddress = 2;
+  string customerContact = 3;
+  string status = 4;
+  string estimatedDelivery = 5;
+}

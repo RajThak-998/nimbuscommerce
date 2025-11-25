@@ -3,7 +3,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "testing logistics",
-  "email": "logisticstest@gmail.com",
+  "name": "Admin",
+  "email": "admin123@gmail.com",
     "address": "456 Commerce Blvd"
 }

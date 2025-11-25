@@ -1,5 +1,7 @@
 package com.nimbuscommerce.orderservice.grpc;
 
+import com.nimbuscommerce.orderservice.kafka.KafkaProducer;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 import order.LogisticsService;
@@ -9,7 +11,10 @@ import order.OrderLogisticsServiceGrpc;
 
 @Slf4j
 @GrpcService
+@RequiredArgsConstructor
 public class OrderLogisticsGrpcService extends OrderLogisticsServiceGrpc.OrderLogisticsServiceImplBase {
+
+    private final KafkaProducer kafkaProducer;
 
     @Override
     public void updateLogisticsInfo(LogisticsUpdateRequest request,
@@ -18,11 +23,10 @@ public class OrderLogisticsGrpcService extends OrderLogisticsServiceGrpc.OrderLo
         boolean success = false;
 
         try{
-            String deliveryId = request.getDeliveryId();
-            String customerAddress = request.getCustomerAddress();
-            String customerContact = request.getCustomerContact();
-            String status = request.getStatus();
-            String estimatedDelivery = request.getEstimatedDelivery();
+
+            log.info("About to call KafkaProducer.sendNotificationEvent, deliveryId={}", request.getDeliveryId());
+            kafkaProducer.sendNotificationEvent(request);
+           log.info("send to the delivery notification from the grpc to kafka");
 
             log.info("Received logistics update for Delivery ID: {}", request.toString());
 
