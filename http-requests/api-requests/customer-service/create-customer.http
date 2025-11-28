@@ -1,9 +1,9 @@
-POST http://localhost:4002/customers
+POST http://localhost:4000/api/customers
 Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Admin",
-  "email": "admin123@gmail.com",
-    "address": "456 Commerce Blvd"
+  "name": "RajuKalia",
+  "email": "Kalia123@gmail.com",
+    "address": "Dholakpur Street"
 }

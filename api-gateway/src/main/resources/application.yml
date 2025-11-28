@@ -1,0 +1,43 @@
+server:
+  port: 4000
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+
+            - id: auth-service-route
+              uri: http://nimbus-auth-service:4001
+              predicates:
+                - name: Path
+                  args:
+                    pattern: /auth/**
+              filters:
+                - name: StripPrefix
+                  args:
+                    parts: 1
+
+            - id: customer-service-route
+              uri: http://nimbus-customer-service:4002
+              predicates:
+                - name: Path
+                  args:
+                    pattern: /api/customers/**
+              filters:
+                - name: StripPrefix
+                  args:
+                    parts: 1
+
+
+            - id: order-service-route
+              uri: http://nimbus-order-service:4003
+              predicates:
+                - name: Path
+                  args:
+                    pattern: /api/orders/**
+              filters:
+                - name: StripPrefix
+                  args:
+                    parts: 1
