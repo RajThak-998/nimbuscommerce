@@ -230,10 +230,10 @@ The platform uses two communication patterns:
 All client requests go through the API Gateway, which routes to appropriate services:
 
 - `/auth/**` → Auth Service
-- `/customers/**` → Customer Service
-- `/orders/**` → Order Service
-- `/logistics/**` → Logistics Service
-- `/notifications/**` → Notification Service
+- `/api/customers/**` → Customer Service
+- `/api/orders/**` → Order Service
+- `/api/logistics/**` → Logistics Service
+- `/api/notifications/**` → Notification Service
 
 ## 📈 Monitoring & Observability
 
